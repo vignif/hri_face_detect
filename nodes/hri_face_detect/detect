@@ -448,7 +448,7 @@ class FaceDetector:
 
         self.face_mesh = face_mesh
 
-        if not face_mesh:
+        if not self.face_mesh:
             self.detector = mp_face_detection.FaceDetection(
                 model_selection=1, min_detection_confidence=0.5
             )
@@ -668,7 +668,7 @@ class RosFaceDetector:
         )
         self.faces_pub = rospy.Publisher("/humans/faces/tracked", IdsList, queue_size=1)
 
-        self.facedetector = FaceDetector(face_mesh, max_num_faces)
+        self.facedetector = FaceDetector(self.face_mesh, max_num_faces)
         self.image_sub = rospy.Subscriber("image", Image, self.callback)
         self.image_info_sub = rospy.Subscriber(
             "camera_info", CameraInfo, self.info_callback
