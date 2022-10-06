@@ -2,6 +2,15 @@
 Changelog for package hri_face_detect
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.4.4 (2022-10-06)
+------------------
+* fix FacialLandmark object initialisation
+  When face_mesh=False, the arguments for the FacialLandmarks
+  objects initialisation were not correctly disposed, as the
+  first element in a FacialLandmarks message is supposed to be a
+  Header.
+* Contributors: lorenzoferrini
+
 1.4.3 (2022-08-31)
 ------------------
 * more update to hri_msgs-0.8.0
